@@ -37,7 +37,7 @@ class VM(private val repositorio: Repositorio) : ViewModel() {
     }
 
     fun searchParte(index: Int) = viewModelScope.launch {
-        currentParte = repositorio.eventById(index)
+        currentParte = repositorio.parteById(index)
     }
 
     // endregion

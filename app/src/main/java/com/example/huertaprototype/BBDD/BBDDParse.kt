@@ -7,6 +7,7 @@ import com.parse.ParseObject
 import com.parse.ParseQuery
 import com.parse.ParseUser
 import com.parse.PointerEncoder
+
 class BBDDParse {
 
     fun mostrarPlantas(): MutableLiveData<List<Planta>> {
@@ -37,7 +38,7 @@ class BBDDParse {
         plantObject.put("cosecha", planta.cosecha.timeInMillis)
         plantObject.saveInBackground { e ->
             if (e != null) {
-                e.localizedMessage?.let { throw Exception(it.localizedMessage) }
+                e.localizedMessage?.let { throw Exception(e.localizedMessage) }
             }
         }
     }
@@ -77,15 +78,15 @@ class BBDDParse {
     }
 
 
-    fun getKey(username:String, password:String):MutableLiveData<String>{
+    fun getKey(username: String, password: String): MutableLiveData<String> {
         val current = MutableLiveData<String>()
         val query = ParseQuery.getQuery<ParseObject>("Usuarios")
         query.whereEqualTo("User", username)
         query.getFirstInBackground { i, parseException ->
             if (parseException == null) {
-                if (i.getString("Password").equals(password)){
+                if (i.getString("Password").equals(password)) {
                     current.postValue(i.getString("objectId"))
-                }else current.postValue("")
+                } else current.postValue("")
             } else {
                 print(parseException)
                 throw Exception(parseException)
@@ -93,12 +94,6 @@ class BBDDParse {
         }
         return current
     }
-
-
-
-
-
-
 
 
 }
