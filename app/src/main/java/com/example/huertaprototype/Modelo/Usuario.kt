@@ -1,6 +1,5 @@
 package com.example.huertaprototype.Modelo
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 
 data class Usuario (
 
