@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.huertaprototype.BBDD.Repositorio
 import kotlinx.coroutines.launch
 
 class VM(private val repositorio: Repositorio) : ViewModel() {

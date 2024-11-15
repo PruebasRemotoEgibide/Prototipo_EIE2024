@@ -3,7 +3,10 @@ package com.example.huertaprototype.BBDD
 import androidx.lifecycle.MutableLiveData
 import com.example.huertaprototype.Modelo.Planta
 import java.util.Calendar
-
+import com.parse.ParseObject
+import com.parse.ParseQuery
+import com.parse.ParseUser
+import com.parse.PointerEncoder
 class BBDDParse {
 
     fun mostrarPlantas(): MutableLiveData<List<Planta>> {
